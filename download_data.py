@@ -11,7 +11,8 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-BASE_URL = "https://physionet.org/files/capslpdb/1.0.0/"
+# PhysioNet's official AWS mirror; physionet.org itself serves ~10 kB/s.
+BASE_URL = "https://physionet-open.s3.amazonaws.com/capslpdb/1.0.0/"
 TARGET = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).parent / "data" / "capslpdb")
 
 
