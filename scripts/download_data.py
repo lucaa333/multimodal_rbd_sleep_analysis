@@ -10,8 +10,13 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+if __package__:
+    from .organize_data import organized_path
+else:
+    from organize_data import organized_path
+
 BASE_URL = "https://physionet-open.s3.amazonaws.com/capslpdb/1.0.0/"
-TARGET = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).parent / "data" / "capslpdb")
+TARGET = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / "data" / "capslpdb"
 TIMEOUT = 120
 
 
@@ -24,7 +29,8 @@ def sha256(path):
 
 
 def fetch(name, expected, bytes_bar):
-    dest = TARGET / name
+    dest = organized_path(TARGET, name) if (TARGET / "recordings.csv").is_file() else TARGET / name
+    dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists() and sha256(dest) == expected:
         return
     part = dest.with_name(dest.name + ".part")

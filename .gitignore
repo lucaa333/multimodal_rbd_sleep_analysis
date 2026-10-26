@@ -221,3 +221,6 @@ __marimo__/
 
 # Downloaded datasets
 data/
+
+# Test files
+tests/
