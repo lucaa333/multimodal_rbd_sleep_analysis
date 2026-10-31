@@ -222,6 +222,9 @@ __marimo__/
 # Downloaded datasets
 data/
 
+# Pipeline results
+outputs/
+
 # Test files
 tests/
 
