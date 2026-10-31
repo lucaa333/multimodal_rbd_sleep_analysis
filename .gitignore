@@ -224,3 +224,5 @@ data/
 
 # Test files
 tests/
+
+/diagrams/

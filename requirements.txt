@@ -1,6 +1,8 @@
 tqdm
+numpy
+scipy
 pandas
 openpyxl
 mne
-matplotlib
+matplotlib>=3.7
 ipykernel

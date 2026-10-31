@@ -1,7 +1,5 @@
-"""Download the PhysioNet CAP Sleep Database (v1.0.0, ~40 GB) into data/capslpdb/.
+"""Download CAP recordings with four parallel workers and verify SHA-256 checksums."""
 
-Re-running is safe as files that already match PhysioNet's SHA-256 are skipped.
-"""
 import hashlib
 import sys
 import urllib.request
