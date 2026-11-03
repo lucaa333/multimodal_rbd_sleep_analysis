@@ -223,7 +223,12 @@ __marimo__/
 data/
 
 # Pipeline results
-outputs/
+/outputs/*
+!/outputs/preprocessing/
+/outputs/preprocessing/*
+!/outputs/preprocessing/features_recordings.csv
+!/outputs/preprocessing/feature_columns.json
+!/outputs/preprocessing/run_config.json
 
 # Test files
 tests/

@@ -1,8 +1,8 @@
-tqdm
-numpy
-scipy
-pandas
-openpyxl
-mne
-matplotlib>=3.7
-ipykernel
+tqdm>=4.70.1
+numpy>=2.5.4
+scipy>=1.18.1
+pandas==3.0.6
+openpyxl>=3.1.5
+mne>=1.13.2
+matplotlib>=3.11.2
+ipykernel>=7.4.0
