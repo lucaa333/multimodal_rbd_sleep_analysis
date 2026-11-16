@@ -1,0 +1,109 @@
+record_id,class_name,original_edf,selected_edf,status,issues,eeg_indices,eeg_channels,eeg_units,eeg_method,eog_indices,eog_channels,eog_units,eog_method,emg_indices,emg_channels,emg_units,emg_method
+brux1,other,other/brux1/brux1.edf,other/brux1/brux1.edf,excluded,Incomplete EDF data blocks and inconsistent recording length,,,,,,,,,,,,
+brux2,other,other/brux2/brux2.edf,other/brux2/brux2.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+ins1,other,other/ins1/ins1.edf,other/ins1/ins1.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins2,other,other/ins2/ins2.edf,other/ins2/ins2.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins3,other,other/ins3/ins3.edf,other/ins3/ins3.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins4,other,other/ins4/ins4.edf,other/ins4/ins4.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins5,other,other/ins5/ins5.edf,other/ins5/ins5.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],mV,automatic
+ins6,other,other/ins6/ins6.edf,other/ins6/ins6.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins7,other,other/ins7/ins7.edf,other/ins7/ins7.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+ins8,other,other/ins8/ins8.edf,other/ins8/ins8.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+ins9,other,other/ins9/ins9.edf,other/ins9/ins9.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+n1,healthy,healthy/n1/n1.edf,healthy/n1/n1.edf,selected,,10,C4-A1 [index 10],uV,automatic,0,ROC-LOC [index 0],uV,automatic,11,EMG1-EMG2 [index 11],uV,automatic
+n10,healthy,healthy/n10/n10.edf,healthy/n10/n10.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],mV,automatic
+n11,healthy,healthy/n11/n11.edf,healthy/n11/n11.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],mV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+n12,healthy,healthy/n12/n12.edf,healthy/n12/n12_prepared.edf,selected,EOG: The A1 and A2 references do not cancel when the signals are subtracted. | EMG: Confirm the muscle and montage represented by this EMG channel.,5,C4-A1 [index 5],uV,automatic,"1,0",ROC / A1 [index 1] minus LOC / A2 [index 0],"uV, uV",manual,9,CHIN1-CHIN2 [index 9],uV,manual
+n13,healthy,healthy/n13/n13.edf,healthy/n13/n13_prepared.edf,selected,"EOG: Check the original references before subtracting these channels. | EMG: Confirm the muscle and montage represented by this EMG channel. | Some units are assumed | Missing units for: F3A2, F4A1",7,C4A1 [index 7],uV,automatic,"1,0",ROC [index 1] minus LOC [index 0],"uV, uV",automatic,11,CHIN1-CHIN2 [index 11],uV,manual
+n14,healthy,healthy/n14/n14.edf,healthy/n14/n14_prepared.edf,selected,"EOG: Check the original references before subtracting these channels. | EMG: Confirm the muscle and montage represented by this EMG channel. | Some units are assumed | Missing units for: F3A2, F4A1",7,C4A1 [index 7],uV,automatic,"1,0",ROC [index 1] minus LOC [index 0],"uV, uV",automatic,11,CHIN1-CHIN2 [index 11],uV,manual
+n15,healthy,healthy/n15/n15.edf,healthy/n15/n15_prepared.edf,selected,"EOG: Check the original references before subtracting these channels. | EMG: Confirm the muscle and montage represented by this EMG channel. | Some units are assumed | Missing units for: F3A2, F4A1",7,C4A1 [index 7],uV,automatic,"1,0",EOG-R [index 1] minus EOG-L [index 0],"uV, uV",automatic,11,CHIN1-CHIN2 [index 11],uV,manual
+n16,healthy,healthy/n16/n16.edf,healthy/n16/n16.edf,excluded,No EOG or EMG channels in the EDF header,,,,,,,,,,,,
+n2,healthy,healthy/n2/n2.edf,healthy/n2/n2.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+n3,healthy,healthy/n3/n3.edf,healthy/n3/n3.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],mV,automatic
+n4,healthy,healthy/n4/n4.edf,healthy/n4/n4.edf,selected,EOG: Check the original references before subtracting these channels. | EMG: Confirm the muscle and montage represented by this EMG channel.,5,C4-A1 [index 5],uV,automatic,"0,7",EOG dx [index 0] minus EOG sin [index 7],"mV, mV",manual,6,milo [index 6],mV,manual
+n5,healthy,healthy/n5/n5.edf,healthy/n5/n5.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+n6,healthy,healthy/n6/n6.edf,healthy/n6/n6.edf,selected,EEG: The EEG location differs from the primary C4-A1 selection. | EOG: The A1 and A2 references do not cancel when the signals are subtracted. | EMG: Confirm the muscle and montage represented by this EMG channel.,3,C3-A2 [index 3],uV,automatic,"1,0",ROC-A2 [index 1] minus LOC-A1 [index 0],"uV, uV",manual,2,EMG-EMG [index 2],uV,automatic
+n7,healthy,healthy/n7/n7.edf,healthy/n7/n7.edf,selected,EEG: The EEG location differs from the primary C4-A1 selection. | EOG: The A1 and A2 references do not cancel when the signals are subtracted. | EMG: Confirm the muscle and montage represented by this EMG channel.,3,C3-A2 [index 3],uV,automatic,"1,0",ROC-A2 [index 1] minus LOC-A1 [index 0],"uV, uV",manual,2,EMG-EMG [index 2],uV,automatic
+n8,healthy,healthy/n8/n8.edf,healthy/n8/n8.edf,selected,EEG: The EEG location differs from the primary C4-A1 selection. | EOG: Check the original references before subtracting these channels. | EMG: Confirm the muscle and montage represented by this EMG channel.,0,C3-A2 [index 0],mV,automatic,"4,3",EOG-R [index 4] minus EOG-L [index 3],"mV, mV",automatic,12,milo [index 12],mV,manual
+n9,healthy,healthy/n9/n9.edf,healthy/n9/n9.edf,selected,EEG: The EEG location differs from the primary C4-A1 selection. | EOG: The A1 and A2 references do not cancel when the signals are subtracted. | EMG: Confirm the muscle and montage represented by this EMG channel.,3,C3-A2 [index 3],uV,automatic,"1,0",ROC-A2 [index 1] minus LOC-A1 [index 0],"uV, uV",manual,2,EMG [index 2],uV,manual
+narco1,other,other/narco1/narco1.edf,other/narco1/narco1.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+narco2,other,other/narco2/narco2.edf,other/narco2/narco2.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+narco3,other,other/narco3/narco3.edf,other/narco3/narco3.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+narco4,other,other/narco4/narco4.edf,other/narco4/narco4.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+narco5,other,other/narco5/narco5.edf,other/narco5/narco5.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+nfle1,other,other/nfle1/nfle1.edf,other/nfle1/nfle1.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle10,other,other/nfle10/nfle10.edf,other/nfle10/nfle10.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle11,other,other/nfle11/nfle11.edf,other/nfle11/nfle11.edf,selected,,13,C4-A1 [index 13],uV,automatic,0,ROC-LOC [index 0],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle12,other,other/nfle12/nfle12.edf,other/nfle12/nfle12.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle13,other,other/nfle13/nfle13.edf,other/nfle13/nfle13.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],mV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle14,other,other/nfle14/nfle14.edf,other/nfle14/nfle14.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle15,other,other/nfle15/nfle15.edf,other/nfle15/nfle15.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle16,other,other/nfle16/nfle16.edf,other/nfle16/nfle16.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle17,other,other/nfle17/nfle17.edf,other/nfle17/nfle17.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],mV,automatic
+nfle18,other,other/nfle18/nfle18.edf,other/nfle18/nfle18.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle19,other,other/nfle19/nfle19.edf,other/nfle19/nfle19.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle2,other,other/nfle2/nfle2.edf,other/nfle2/nfle2.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle20,other,other/nfle20/nfle20.edf,other/nfle20/nfle20.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle21,other,other/nfle21/nfle21.edf,other/nfle21/nfle21.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle22,other,other/nfle22/nfle22.edf,other/nfle22/nfle22.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle23,other,other/nfle23/nfle23.edf,other/nfle23/nfle23.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle24,other,other/nfle24/nfle24.edf,other/nfle24/nfle24.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle25,other,other/nfle25/nfle25.edf,other/nfle25/nfle25.edf,selected,EEG: Check the original references before subtracting these channels. | EOG: Check the original references before subtracting these channels. | EMG: Check the original references before subtracting these channels.,"5,8",C4 [index 5] minus A1 [index 8],"uV, uV",automatic,"10,11",ROC [index 10] minus LOC [index 11],"uV, uV",automatic,"14,15",EMG1 [index 14] minus EMG2 [index 15],"uV, uV",automatic
+nfle26,other,other/nfle26/nfle26.edf,other/nfle26/nfle26.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle27,other,other/nfle27/nfle27.edf,other/nfle27/nfle27.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],mV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle28,other,other/nfle28/nfle28.edf,other/nfle28/nfle28.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle29,other,other/nfle29/nfle29.edf,other/nfle29/nfle29.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle3,other,other/nfle3/nfle3.edf,other/nfle3/nfle3.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle30,other,other/nfle30/nfle30.edf,other/nfle30/nfle30.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle31,other,other/nfle31/nfle31.edf,other/nfle31/nfle31.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle32,other,other/nfle32/nfle32.edf,other/nfle32/nfle32.edf,selected,,11,C4-A1 [index 11],uV,automatic,12,ROC-LOC [index 12],mV,automatic,13,EMG1-EMG2 [index 13],uV,automatic
+nfle33,other,other/nfle33/nfle33.edf,other/nfle33/nfle33.edf,selected,EEG: Check the original references before subtracting these channels. | EOG: Check the original references before subtracting these channels. | EMG: Check the original references before subtracting these channels.,"5,8",C4 [index 5] minus A1 [index 8],"mV, mV",automatic,"10,11",ROC [index 10] minus LOC [index 11],"mV, mV",automatic,"14,15",EMG1 [index 14] minus EMG2 [index 15],"mV, mV",automatic
+nfle34,other,other/nfle34/nfle34.edf,other/nfle34/nfle34.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle35,other,other/nfle35/nfle35.edf,other/nfle35/nfle35.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle36,other,other/nfle36/nfle36.edf,other/nfle36/nfle36.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle37,other,other/nfle37/nfle37.edf,other/nfle37/nfle37.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle38,other,other/nfle38/nfle38.edf,other/nfle38/nfle38.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle39,other,other/nfle39/nfle39.edf,other/nfle39/nfle39.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle4,other,other/nfle4/nfle4.edf,other/nfle4/nfle4.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle40,other,other/nfle40/nfle40.edf,other/nfle40/nfle40.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle5,other,other/nfle5/nfle5.edf,other/nfle5/nfle5.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle6,other,other/nfle6/nfle6.edf,other/nfle6/nfle6.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle7,other,other/nfle7/nfle7.edf,other/nfle7/nfle7.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle8,other,other/nfle8/nfle8.edf,other/nfle8/nfle8.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+nfle9,other,other/nfle9/nfle9.edf,other/nfle9/nfle9.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],mV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm1,other,other/plm1/plm1.edf,other/plm1/plm1.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm10,other,other/plm10/plm10.edf,other/plm10/plm10.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm2,other,other/plm2/plm2.edf,other/plm2/plm2.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm3,other,other/plm3/plm3.edf,other/plm3/plm3.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm4,other,other/plm4/plm4.edf,other/plm4/plm4.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+plm5,other,other/plm5/plm5.edf,other/plm5/plm5.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+plm6,other,other/plm6/plm6.edf,other/plm6/plm6.edf,selected,,8,C4-A1 [index 8],uV,automatic,9,ROC-LOC [index 9],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+plm7,other,other/plm7/plm7.edf,other/plm7/plm7.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+plm8,other,other/plm8/plm8.edf,other/plm8/plm8.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],mV,automatic
+plm9,other,other/plm9/plm9.edf,other/plm9/plm9.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],uV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+rbd1,rbd,rbd/rbd1/rbd1.edf,rbd/rbd1/rbd1.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+rbd10,rbd,rbd/rbd10/rbd10.edf,rbd/rbd10/rbd10.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],mV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd11,rbd,rbd/rbd11/rbd11.edf,rbd/rbd11/rbd11.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],mV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd12,rbd,rbd/rbd12/rbd12.edf,rbd/rbd12/rbd12.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd13,rbd,rbd/rbd13/rbd13.edf,rbd/rbd13/rbd13.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd14,rbd,rbd/rbd14/rbd14.edf,rbd/rbd14/rbd14.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+rbd15,rbd,rbd/rbd15/rbd15.edf,rbd/rbd15/rbd15.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+rbd16,rbd,rbd/rbd16/rbd16.edf,rbd/rbd16/rbd16.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd17,rbd,rbd/rbd17/rbd17.edf,rbd/rbd17/rbd17.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd18,rbd,rbd/rbd18/rbd18.edf,rbd/rbd18/rbd18.edf,selected,,12,C4-A1 [index 12],uV,automatic,13,ROC-LOC [index 13],mV,automatic,14,EMG1-EMG2 [index 14],uV,automatic
+rbd19,rbd,rbd/rbd19/rbd19.edf,rbd/rbd19/rbd19.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd2,rbd,rbd/rbd2/rbd2.edf,rbd/rbd2/rbd2.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],mV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd20,rbd,rbd/rbd20/rbd20.edf,rbd/rbd20/rbd20.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+rbd21,rbd,rbd/rbd21/rbd21.edf,rbd/rbd21/rbd21.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd22,rbd,rbd/rbd22/rbd22.edf,rbd/rbd22/rbd22.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd3,rbd,rbd/rbd3/rbd3.edf,rbd/rbd3/rbd3.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd4,rbd,rbd/rbd4/rbd4.edf,rbd/rbd4/rbd4.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+rbd5,rbd,rbd/rbd5/rbd5.edf,rbd/rbd5/rbd5.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd6,rbd,rbd/rbd6/rbd6.edf,rbd/rbd6/rbd6.edf,selected,,6,C4-A1 [index 6],uV,automatic,0,ROC-LOC [index 0],uV,automatic,7,EMG1-EMG2 [index 7],uV,automatic
+rbd7,rbd,rbd/rbd7/rbd7.edf,rbd/rbd7/rbd7.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+rbd8,rbd,rbd/rbd8/rbd8.edf,rbd/rbd8/rbd8.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],mV,automatic
+rbd9,rbd,rbd/rbd9/rbd9.edf,rbd/rbd9/rbd9.edf,selected,,9,C4-A1 [index 9],uV,automatic,0,ROC-LOC [index 0],uV,automatic,10,EMG1-EMG2 [index 10],uV,automatic
+sdb1,other,other/sdb1/sdb1.edf,other/sdb1/sdb1.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],uV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+sdb2,other,other/sdb2/sdb2.edf,other/sdb2/sdb2.edf,selected,,4,C4-A1 [index 4],uV,automatic,5,ROC-LOC [index 5],mV,automatic,6,EMG1-EMG2 [index 6],uV,automatic
+sdb3,other,other/sdb3/sdb3.edf,other/sdb3/sdb3.edf,selected,,6,C4-A1 [index 6],uV,automatic,0,ROC-LOC [index 0],uV,automatic,7,EMG1-EMG2 [index 7],uV,automatic
+sdb4,other,other/sdb4/sdb4.edf,other/sdb4/sdb4.edf,selected,,5,C4-A1 [index 5],uV,automatic,0,ROC-LOC [index 0],mV,automatic,6,EMG1-EMG2 [index 6],mV,automatic

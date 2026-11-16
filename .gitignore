@@ -227,8 +227,13 @@ data/
 !/outputs/preprocessing/
 /outputs/preprocessing/*
 !/outputs/preprocessing/features_recordings.csv
+!/outputs/preprocessing/features_windows.csv
 !/outputs/preprocessing/feature_columns.json
 !/outputs/preprocessing/run_config.json
+!/outputs/preprocessing/reports/
+/outputs/preprocessing/reports/*
+!/outputs/preprocessing/reports/channel_selections.csv
+!/outputs/splits/
 
 # Test files
 tests/
