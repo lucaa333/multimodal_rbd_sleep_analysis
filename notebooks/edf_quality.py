@@ -5,6 +5,51 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
+INT16_MIN, INT16_MAX = -32768, 32767
+PLATEAU_RATIO = 10
+PLATEAU_MIN_SAMPLES = 10
+PLATEAU_EDGE_FRACTION = 0.01
+
+
+def saturation_limits(digital, ratio=PLATEAU_RATIO, min_samples=PLATEAU_MIN_SAMPLES,
+                      edge_fraction=PLATEAU_EDGE_FRACTION):
+    """Find the digital values at which a channel saturates.
+
+    EDF headers often state a display range instead of the converter range, so the
+    limits come from the data. A saturated channel piles up samples at or just inside
+    its observed extremes. A value near an extreme counts as a plateau when it occurs
+    at least `ratio` times as often as the typical value just further inward and at
+    least `min_samples` times. Without a plateau, the 16-bit limits apply.
+    """
+    counts = np.bincount(np.asarray(digital, dtype=np.int64).ravel() - INT16_MIN,
+                         minlength=INT16_MAX - INT16_MIN + 1)
+    present = np.flatnonzero(counts)
+    if not len(present):
+        raise ValueError("The channel contains no samples.")
+    first, last = int(present[0]), int(present[-1])
+    edge = max(3, round(edge_fraction * (last - first)))
+
+    def plateau(extreme, inward):
+        window = extreme + inward * np.arange(edge + 1)
+        window = window[(window >= first) & (window <= last)]
+        reference_bins = extreme + inward * np.arange(edge + 1, 2 * edge + 1)
+        reference_bins = reference_bins[(reference_bins >= first) & (reference_bins <= last)]
+        reference = float(np.median(counts[reference_bins])) if len(reference_bins) else 0.0
+        threshold = max(min_samples, ratio * max(reference, 1.0))
+        spikes = np.flatnonzero(counts[window] >= threshold)
+        if not len(spikes):
+            return None
+        # Start at the plateau closest to the extreme and extend inward over adjacent plateau values.
+        position = int(spikes[0])
+        while position + 1 < len(window) and counts[window[position + 1]] >= threshold:
+            position += 1
+        return int(window[position]) + INT16_MIN
+
+    low = plateau(first, 1)
+    high = plateau(last, -1)
+    return (INT16_MIN if low is None else low), (INT16_MAX if high is None else high)
+
+
 class NativeEDF:
     def __init__(self, path):
         self.path = Path(path)
@@ -67,13 +112,18 @@ class NativeEDF:
         return float(self.samples_per_record[index] / self.record_seconds)
 
     def digital_limits(self, index):
+        """Return the saturation limits found in the data and whether the samples stay inside the header range."""
         if index not in self._digital_limits:
             n = int(self.samples_per_record[index])
             offset = int(self.offsets[index])
             channel = self._data[:, offset:offset + n]
-            low, high = self.digital_min[index], self.digital_max[index]
-            consistent = low < high and channel.min() >= low and channel.max() <= high
-            self._digital_limits[index] = (low, high, True) if consistent else (-32768, 32767, False)
+            header_low, header_high = self.digital_min[index], self.digital_max[index]
+            header_ok = header_low < header_high and channel.min() >= header_low and channel.max() <= header_high
+            low, high = saturation_limits(channel)
+            if header_ok:
+                # A header range that contains all samples is a real limit, so samples on it also count as clipped.
+                low, high = max(low, int(header_low)), min(high, int(header_high))
+            self._digital_limits[index] = (low, high, bool(header_ok))
         return self._digital_limits[index]
 
     def read(self, index, start, stop):
@@ -180,110 +230,11 @@ def read_montage(edf, selection, start=0, stop=None):
     return combined, clipped_combined
 
 
-def save_chin_difference(edf, indices, destination, label):
-    """Copy an EDF and append a provisional sample-wise CHIN difference."""
-    destination = Path(destination)
-    if destination.resolve() == edf.path.resolve():
-        raise ValueError("The derived EDF must be saved as a separate file.")
-    if len(indices) != 2 or indices[0] == indices[1]:
-        raise ValueError("Select two different CHIN channels.")
-    first, second = indices
-    if edf.samples_per_record[first] != edf.samples_per_record[second]:
-        raise ValueError("CHIN channels must have the same sampling rate.")
-    units = [edf.units[index].strip().lower().replace("µ", "u").replace("μ", "u") for index in indices]
-    factors = {"uv": 1.0, "mv": 1000.0, "v": 1_000_000.0}
-    if not all(unit in factors for unit in units):
-        raise ValueError("Both CHIN channels need a supported voltage unit.")
-    unit_factors = [factors[unit] for unit in units]
-    if edf.header_bytes != 256 + 256 * edf.channel_count:
-        raise ValueError("EDF header extensions are not supported for this copy.")
-    for index in indices:
-        if edf.digital_min[index] == edf.digital_max[index]:
-            raise ValueError("Invalid CHIN channel calibration.")
+def uncalibrated(edf, index):
+    """Return True when the header maps digital values one-to-one to physical values."""
+    return (edf.physical_min[index] == edf.digital_min[index]
+            and edf.physical_max[index] == edf.digital_max[index])
 
-    # Use the observed signal range to avoid clipping the derived channel.
-    mapped = np.memmap(edf.path, dtype="<i2", mode="r", offset=edf.header_bytes,
-                       shape=(edf.record_count, edf.record_width))
-    ranges = []
-    try:
-        for index, factor in zip(indices, unit_factors):
-            start = int(edf.offsets[index])
-            samples = mapped[:, start:start + int(edf.samples_per_record[index])]
-            digital_extremes = [float(samples.min()), float(samples.max())]
-            scale = (edf.physical_max[index] - edf.physical_min[index]) / (edf.digital_max[index] - edf.digital_min[index])
-            physical_extremes = [((value - edf.digital_min[index]) * scale + edf.physical_min[index]) * factor
-                                 for value in digital_extremes]
-            ranges.append((min(physical_extremes), max(physical_extremes)))
-    finally:
-        mapped._mmap.close()
-    lower = float(np.floor(ranges[0][0] - ranges[1][1]))
-    upper = float(np.ceil(ranges[0][1] - ranges[1][0]))
-    if upper <= lower:
-        raise ValueError("Invalid physical range for the derived channel.")
-
-    def field(value, width):
-        encoded = str(value).encode("ascii")
-        if len(encoded) > width:
-            raise ValueError(f"The value {value!r} does not fit the EDF header.")
-        return encoded.ljust(width, b" ")
-
-    def number(value):
-        for precision in range(7, 0, -1):
-            value_string = f"{value:.{precision}g}"
-            if len(value_string) <= 8 and float(value_string) == value:
-                return value_string
-        raise ValueError("The derived calibration cannot be represented exactly in the EDF header.")
-
-    new_fields = [label, "Derived CHIN difference", "uV", number(lower), number(upper),
-                  -32768, 32767, "", int(edf.samples_per_record[first]), ""]
-    widths = [16, 80, 8, 8, 8, 8, 8, 80, 8, 32]
-    record_bytes = edf.record_width * 2
-    with edf.path.open("rb") as source:
-        fixed = bytearray(source.read(256))
-        signal_header = source.read(edf.channel_count * 256)
-        if len(signal_header) != edf.channel_count * 256:
-            raise ValueError("The EDF signal header is incomplete.")
-        fixed[184:192] = field(256 + 256 * (edf.channel_count + 1), 8)
-        fixed[252:256] = field(edf.channel_count + 1, 4)
-        new_header = bytearray()
-        offset = 0
-        for width, value in zip(widths, new_fields):
-            size = width * edf.channel_count
-            new_header.extend(signal_header[offset:offset + size])
-            new_header.extend(field(value, width))
-            offset += size
-
-        def derived_bytes(original):
-            digital = np.frombuffer(original, dtype="<i2")
-            signals = []
-            for index, factor in zip(indices, unit_factors):
-                start = int(edf.offsets[index])
-                samples = digital[start:start + int(edf.samples_per_record[index])].astype(float)
-                scale = (edf.physical_max[index] - edf.physical_min[index]) / (edf.digital_max[index] - edf.digital_min[index])
-                signals.append(((samples - edf.digital_min[index]) * scale + edf.physical_min[index]) * factor)
-            difference = signals[0] - signals[1]
-            encoded = np.rint((difference - lower) * 65535 / (upper - lower) - 32768)
-            if np.any((encoded < -32768) | (encoded > 32767)):
-                raise ValueError("The derived samples exceed the saved EDF calibration range.")
-            return encoded.astype('<i2').tobytes()
-
-        created = False
-        try:
-            with destination.open("xb") as output:
-                created = True
-                output.write(fixed)
-                output.write(new_header)
-                for _ in range(edf.record_count):
-                    original = source.read(record_bytes)
-                    if len(original) != record_bytes:
-                        raise OSError("The source EDF ended before the last complete data record.")
-                    output.write(original)
-                    output.write(derived_bytes(original))
-        except BaseException:
-            if created:
-                destination.unlink()
-            raise
-    return destination
 
 def assess_window(values, clipped, modality, flat_step_reject_fraction, clipping_reject_fraction, amplitude_flag_uv):
     reject, flags = [], []
