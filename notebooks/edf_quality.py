@@ -126,7 +126,7 @@ class NativeEDF:
             self._digital_limits[index] = (low, high, bool(header_ok))
         return self._digital_limits[index]
 
-    def read(self, index, start, stop):
+    def read_digital(self, index, start, stop):
         if self._data is None:
             raise RuntimeError("Open the EDF reader first.")
         per_record = int(self.samples_per_record[index])
@@ -135,7 +135,10 @@ class NativeEDF:
         first, last = start // per_record, (stop - 1) // per_record + 1
         offset = int(self.offsets[index])
         digital = np.array(self._data[first:last, offset:offset + per_record], dtype=np.int32).reshape(-1)
-        digital = digital[start - first * per_record:stop - first * per_record]
+        return digital[start - first * per_record:stop - first * per_record]
+
+    def read(self, index, start, stop):
+        digital = self.read_digital(index, start, stop)
         span = self.digital_max[index] - self.digital_min[index]
         if span == 0 or self.physical_max[index] == self.physical_min[index]:
             raise ValueError("Invalid channel calibration.")
