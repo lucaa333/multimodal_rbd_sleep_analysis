@@ -223,7 +223,8 @@ __marimo__/
 data/
 
 # Pipeline results
-/outputs/models/
+/outputs/02_preprocessing/cache/
+/outputs/04_model_comparison/models/
 
 # Test files
 tests/
