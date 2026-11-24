@@ -4,8 +4,11 @@ scipy>=1.18.1
 pandas==3.0.6
 openpyxl>=3.1.5
 mne>=1.13.2
+yasa==0.8.1
+gssc==0.0.9
 matplotlib>=3.11.2
 ipykernel>=7.4.0
+ipywidgets==8.1.9
 scikit-learn==1.9.1
 xgboost==3.4.1
 catboost==1.2.10
